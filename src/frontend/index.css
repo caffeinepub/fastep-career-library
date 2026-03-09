@@ -1,0 +1,164 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: "Outfit";
+  src: url("/assets/fonts/Outfit.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Cabinet Grotesk";
+  src: url("/assets/fonts/CabinetGrotesk.woff2") format("woff2");
+  font-weight: 100 900;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer base {
+  :root {
+    --radius: 0.75rem;
+
+    /* Fastep Career Library — warm orange-red theme */
+    --background: 0.98 0.005 60;
+    --foreground: 0.18 0.03 40;
+
+    --card: 1 0 0;
+    --card-foreground: 0.18 0.03 40;
+
+    --popover: 1 0 0;
+    --popover-foreground: 0.18 0.03 40;
+
+    /* Primary: orange-red #E8440A */
+    --primary: 0.57 0.21 36;
+    --primary-foreground: 1 0 0;
+
+    --secondary: 0.95 0.01 60;
+    --secondary-foreground: 0.3 0.04 40;
+
+    --muted: 0.95 0.008 60;
+    --muted-foreground: 0.52 0.02 40;
+
+    --accent: 0.92 0.04 50;
+    --accent-foreground: 0.18 0.03 40;
+
+    /* Destructive: deep red */
+    --destructive: 0.53 0.22 26;
+    --destructive-foreground: 1 0 0;
+
+    /* Success: green */
+    --success: 0.56 0.17 145;
+    --success-foreground: 1 0 0;
+
+    /* Warning: amber */
+    --warning: 0.78 0.16 75;
+    --warning-foreground: 0.15 0.02 40;
+
+    --border: 0.88 0.01 60;
+    --input: 0.88 0.01 60;
+    --ring: 0.57 0.21 36;
+
+    /* Orange brand colors */
+    --brand-orange: 0.57 0.21 36;
+    --brand-orange-light: 0.73 0.17 43;
+    --brand-orange-pale: 0.93 0.06 50;
+    --brand-orange-hero: 0.62 0.23 35;
+
+    --chart-1: 0.57 0.21 36;
+    --chart-2: 0.56 0.17 145;
+    --chart-3: 0.53 0.22 26;
+    --chart-4: 0.75 0.15 75;
+    --chart-5: 0.6 0.18 250;
+
+    --sidebar: 0.98 0.005 60;
+    --sidebar-foreground: 0.18 0.03 40;
+    --sidebar-primary: 0.57 0.21 36;
+    --sidebar-primary-foreground: 1 0 0;
+    --sidebar-accent: 0.93 0.06 50;
+    --sidebar-accent-foreground: 0.18 0.03 40;
+    --sidebar-border: 0.88 0.01 60;
+    --sidebar-ring: 0.57 0.21 36;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .bg-brand-gradient {
+    background: linear-gradient(135deg, oklch(0.57 0.21 36) 0%, oklch(0.62 0.23 28) 100%);
+  }
+  .bg-brand-gradient-hero {
+    background: linear-gradient(160deg, oklch(0.57 0.21 36) 0%, oklch(0.5 0.2 30) 60%, oklch(0.45 0.18 28) 100%);
+  }
+  .text-brand {
+    color: oklch(0.57 0.21 36);
+  }
+  .text-brand-dark {
+    color: oklch(0.45 0.18 28);
+  }
+  .border-brand {
+    border-color: oklch(0.57 0.21 36);
+  }
+  .shadow-brand {
+    box-shadow: 0 4px 24px oklch(0.57 0.21 36 / 0.2);
+  }
+  .shadow-card {
+    box-shadow: 0 2px 12px oklch(0.18 0.03 40 / 0.08), 0 1px 3px oklch(0.18 0.03 40 / 0.04);
+  }
+  .card-hover {
+    transition: box-shadow 0.2s ease, transform 0.2s ease;
+  }
+  .card-hover:hover {
+    box-shadow: 0 8px 30px oklch(0.57 0.21 36 / 0.15);
+    transform: translateY(-2px);
+  }
+  .input-brand {
+    @apply focus-visible:ring-2 focus-visible:ring-primary/50 focus-visible:border-primary;
+  }
+  .btn-brand {
+    background: linear-gradient(135deg, oklch(0.57 0.21 36) 0%, oklch(0.52 0.21 32) 100%);
+    color: white;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+  .btn-brand:hover {
+    background: linear-gradient(135deg, oklch(0.52 0.21 32) 0%, oklch(0.47 0.2 30) 100%);
+    box-shadow: 0 4px 16px oklch(0.57 0.21 36 / 0.35);
+  }
+  .seat-available {
+    background-color: oklch(0.95 0.04 145);
+    border: 2px solid oklch(0.75 0.15 145);
+    color: oklch(0.35 0.12 145);
+  }
+  .seat-blocked {
+    background-color: oklch(0.95 0.04 36);
+    border: 2px solid oklch(0.72 0.15 36);
+    color: oklch(0.45 0.18 28);
+  }
+  .seat-selected {
+    background-color: oklch(0.93 0.06 50);
+    border: 2px solid oklch(0.57 0.21 36);
+    color: oklch(0.45 0.18 28);
+  }
+
+  /* Mobile app shell */
+  .app-shell {
+    @apply min-h-screen flex flex-col;
+    max-width: 480px;
+    margin: 0 auto;
+    background-color: oklch(0.98 0.005 60);
+  }
+}
